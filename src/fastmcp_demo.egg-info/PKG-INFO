@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: fastmcp-demo
+Version: 0.1.0
+Summary: A minimal MCP server using FastMCP with example tools, prompts, and resources
+Author: Your Name
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: fastmcp>=0.1.0
+
+# FastMCP Demo Server
+
+This is a minimal Model Context Protocol (MCP) server implemented with FastMCP, showcasing:
+
+- Tools (callable functions)
+- Prompts (templated text)
+- Resources (static and dynamic data)
+
+## Quick start
+
+1. Create a virtual environment and install dependencies:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e .
+```
+
+2. Run the server with a transport of your choice (stdio shown here):
+
+```bash
+python -m fastmcp run src/server.py --transport stdio
+```
+
+3. From an MCP-compatible client, you should see the server expose:
+
+- Tools: `echo`, `add`, `get_time`, `read_resource`
+- Prompts: `hello`, `sum`
+- Resources: `greeting.txt` (static), `time.json` (dynamic)
+
+## Project layout
+
+- `src/server.py` – FastMCP server definition
+- `pyproject.toml` – project metadata
+- `README.md` – this file
+- `resources/` – example resource files
